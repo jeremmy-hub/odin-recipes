@@ -108,13 +108,13 @@ async function HandleGameTrials(){
 function determineWinner(person_score, computers_score) {
     let results = '';
     if(person_score > computers_score){
-        results = `You Win, scores ${person_score} - ${computers_score}`
+        results = `You Win<br/> Scores : ${person_score} - ${computers_score}`
     }
     else if(computers_score > person_score){
-        results = `You Lose,  scores ${person_score} - ${computers_score}`
+        results = `You Lose<br/>  Scores : ${person_score} - ${computers_score}`
     }
     else{
-        results = `Its a draw, scores ${person_score} - ${computers_score}`
+        results = `Its a Draw<br/> Scores : ${person_score} - ${computers_score}`
     }
 
     return results;
@@ -130,14 +130,16 @@ function removeHover(element) {
 async function PlayGame(){
     let scores = await HandleGameTrials();
     let game_scores = determineWinner(...scores);
-    FINAL_RESULTS_PANEL.textContent =  game_scores;
+    FINAL_RESULTS_PANEL.innerHTML =  game_scores;
+    gameStartBtn.textContent = 'GAME OVER !!!'
     setTimeout(()=>{
         window.location.reload();
-    },10000);
+    },15000);
     return;
 }
 
-gameStartBtn.addEventListener('click',()=>{
+gameStartBtn.addEventListener('click',(event)=>{
+    event.target.textContent = 'GAME ON PROGRESS'
     FINAL_RESULTS_PANEL.textContent = '';
     PlayGame();
 })
