@@ -1,7 +1,13 @@
+:root{
+    --primary_color: orangered;
+}
+
 * {
     padding: 0%;
     box-sizing: border-box;
     margin: 0%;
+    font-size: 2vw;
+   
 }
 
 body {
@@ -9,47 +15,120 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    perspective: 5000px;
-    transform-style: preserve-3d;
-    perspective-origin: 75% 50%;
+}
+
+.start_game{
+    position: absolute;
+    top: 3vh;
+    font-weight: 1000;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-inline: 5vw;
+    border: 3px solid black;
+    border-radius: 10px;
+    background-color: transparent;
+    color: black;
+    text-shadow: 1px 1px 40px 60px black;
+}
+
+.start_game:hover{
+    background-color: var(--primary_color);
+    outline-offset: 3px;
+    outline: 2px solid var(--primary_color);
 }
 
 .container {
-    background-image: url('../index_images/guru40.jpg');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../index_images/ai-generated-8128135_640.png');
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    width: 120vw;
-    height: 120vh;
-    animation: illusion 10s ease-in-out infinite;
-
+    width: 100%;
+    height: 100%;
+}
+.game_playground{
+    display: flex;
+    justify-content: space-around;
+    height: 80vh;
+    width: 90vw;
+    gap: 5vw;
+}
+.players_containers{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: space-between;
+    min-width: 20vw;
+   
 }
 
-@keyframes illusion {
-    0%{
-        transform: rotateY(0);
-    }
-    25%{
-        transform: rotateY(-15deg);
-        width: 121vw;
-        height: 121vh;
-    }
-    50%{
-        transform: rotate(15deg, 0deg);
-        opacity: 0.4;
-        width: 121vw;
-        height: 121vh;
-       
-    }
-    75%{
-        transform: rotate(0deg, 15deg);
-        width: 121vw;
-        height: 121vh;
-    }
-    100%{
-        transform: rotate(15deg, 0deg);
-    }
+.score_board{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: rgba(12, 2, 22, 0.77);
+    border: 1px solid transparent;
+    text-align: center;
+    border-radius: 7%;
+    justify-content: space-between;
+    gap: 5%;
 }
+
+.individual_game_container, .final_score_container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: inherit;
+    flex: 2;
+    color: var(--primary_color);
+    padding: 10px;
+}
+.textBox{
+    width: 80%;
+    height: auto;
+    text-align: center;
+    font-size: 2rem;
+}
+.instructions_container{
+    flex:0.3;
+    text-align: center;
+    border-bottom: 3px solid orangered;
+    border-top: 3px solid orangered;
+    color: rgb(181, 7, 181);
+    font-size: 1.5rem;
+    text-align: center;
+}
+.computers,.player1{
+    width: 10vw;
+    height:10vw;
+    border-top: 5px solid white;
+    border-bottom: 5px solid white;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.825);
+    padding-inline: 5px;
+    color: white;
+    font-family:fantasy;
+    text-transform: lowercase;
+    font-weight: 700;
+    box-shadow: 0px 0px 20px 25px orangered,
+     0px 0px 70px 15px rgb(97, 4, 88); 
+    outline: 4px dotted black;
+    outline-offset: 10px;}
+
+.computers:hover, .player1:hover, .hover-effect{
+    background-color: rgb(94, 6, 76);
+    border-top:  5px solid rgb(190, 235, 8);
+    border-bottom:  5px solid rgb(190, 235, 8);
+    box-shadow: 0px 0px 20px 25px orangered,
+     0px 0px 70px 15px rgb(97, 4, 88), 0px 0px 90px 25px black; 
+    transform: scale(1.02,1.02);
+    text-transform: uppercase;
+    color: rgb(234, 0, 255);
+    
+}
+
