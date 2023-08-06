@@ -1,6 +1,3 @@
-// two players computer and person
-// possible moves Rock paper scissors
-// possible outcomes win lose draw
 const GAME_CHOICES = ['ROCK', 'PAPER', 'SCISSORS'];
 const computerButtons = document.querySelectorAll('.computers');
 const playerButtons = document.querySelectorAll('.player1');
@@ -25,6 +22,14 @@ async function getGameChoices() {
 
 async function getComputerChoices(){
     let choice = await getCompChoice();
+    for (let btn of computerButtons){
+        if (btn.textContent.toLocaleLowerCase() === choice){
+            forceHover(btn);
+            setTimeout(()=>{
+                removeHover(btn)
+            },500);
+        }
+    }
     return new Promise((resolve, reject)=>{
              setTimeout(()=>{resolve(choice);},1000)});}
 

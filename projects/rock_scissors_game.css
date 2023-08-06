@@ -33,10 +33,19 @@ body {
     text-shadow: 1px 1px 40px 60px black;
 }
 
+.hidden-audio {
+      position: absolute;
+      bottom: -100px; /* Move it off-screen */
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
 .start_game:hover{
     background-color: var(--primary_color);
     outline-offset: 3px;
     outline: 2px solid var(--primary_color);
+    color: white;
 }
 
 .container {
@@ -84,6 +93,8 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: inherit;
+    border-left: 2px solid var(--primary_color);
+    border-right: 2px solid var(--primary_color);
     flex: 2;
     color: var(--primary_color);
     padding: 10px;
